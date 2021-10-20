@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../core/services/auth.service';
+import { CookieService } from '../../services/cookie.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,12 +18,12 @@ export class LoginComponent implements OnInit {
   loading = false;
 
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      email: ['superadmin@gmail.com', [Validators.required, Validators.email]],
+      password: ['1234567', Validators.required],
     });
 
     // reset login status
@@ -47,11 +48,9 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-
           if (data.status == true) {
-            console.log(data.data);
-            localStorage.setItem('currentUser', JSON.stringify(data.data))
-            localStorage.setItem('token', data.token);
+            this.cookieService.setCookie('currentUser', JSON.stringify(data.data), 1);
+            this.cookieService.setCookie('token', JSON.stringify(data.token), 1);
             this.router.navigate(['/dashboard']);
             this.loading = false;
           } else {

@@ -1,9 +1,20 @@
-body{
-  font-family: 'poppins', sans-serif;
+body {
+  font-family: "poppins", sans-serif;
 }
 .bg-white {
   background-color: #fff !important;
 }
 .text-primary {
-  color: #0B2A97 !important;
+  color: #0b2a97 !important;
+}
+
+body {
+  margin: 0;
+  font-family: "poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7e7e7e;
+  text-align: left;
+  background-color: #f9f9f9;
 }

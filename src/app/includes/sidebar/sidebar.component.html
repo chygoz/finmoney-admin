@@ -1,11 +1,23 @@
-<div class="deznav">
+<div class="deznav" [ngClass]="menuToggleNavheader ? 'deznav-active' : ''">
     <div class="deznav-scroll mm-active ps">
         <ul class="metismenu mm-show" id="menu">
-            <li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-networking"></i>
-                    <span class="nav-text">Dashboard</span>
+            <li [ngClass]="dashboard ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'dashboard')" aria-expanded="false">
+                    <i class="flaticon-381-television"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Dashboard</span>
                 </a>
-                <ul aria-expanded="false" class="mm-collapse mm-show">
+            </li>
+            <!--li [ngClass]="dashboard ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'dashboard')" aria-expanded="false">
+                    <i class="flaticon-381-television"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Dashboard</span>
+                    <span *ngIf="!menuToggleNavheader">
+                    <img src="assets/images/down-arrow.png" *ngIf="dashboard" class="downarrow" />
+                    <img src="assets/images/right-arrow.png" *ngIf="!dashboard" class="downarrow" />
+                    </span>
+                </a>
+                <span *ngIf="!menuToggleNavheader">
+                <ul aria-expanded="false" class="mm-collapse" *ngIf="!dashboard">
                     <li class="mm-active"><a href="index.html" class="mm-active">Dashboard</a></li>
                     <li><a href="workout-statistic.html">Workout Statistic</a></li>
                     <li><a href="workoutplan.html">Workout Plan</a></li>
@@ -13,139 +25,93 @@
                     <li><a href="food-menu.html">Diet Food Menu</a></li>
                     <li><a href="personal-record.html">Personal Record</a></li>
                 </ul>
-            </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
-                    <span class="nav-text">Apps</span>
+                </span>
+                <div class="hovermenuchecklist hide" *ngIf="menuToggleNavheader">
+                    <ul class="hovermenulist">
+                        <li><a href="index.html" class="mm-active">Dashboard 1</a></li>
+                        <li><a href="workout-statistic.html">Workout Statistic</a></li>
+                        <li><a href="workoutplan.html">Workout Plan</a></li>
+                        <li><a href="distance-map.html">Distance Map</a></li>
+                        <li><a href="food-menu.html">Diet Food Menu</a></li>
+                        <li><a href="personal-record.html">Personal Record</a></li>
+                    </ul>
+                </div>
+            </li-->
+            <li [ngClass]="tradegroups ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'tradegroups')" aria-expanded="false">
+                    <i class="flaticon-381-app"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Trade Groups</span>
                 </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="./app-profile.html">Profile</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                        <ul aria-expanded="false" class="mm-collapse">
-                            <li><a href="./email-compose.html">Compose</a></li>
-                            <li><a href="./email-inbox.html">Inbox</a></li>
-                            <li><a href="./email-read.html">Read</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./app-calender.html">Calendar</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                        <ul aria-expanded="false" class="mm-collapse">
-                            <li><a href="./ecom-product-grid.html">Product Grid</a></li>
-                            <li><a href="./ecom-product-list.html">Product List</a></li>
-                            <li><a href="./ecom-product-detail.html">Product Details</a></li>
-                            <li><a href="./ecom-product-order.html">Order</a></li>
-                            <li><a href="./ecom-checkout.html">Checkout</a></li>
-                            <li><a href="./ecom-invoice.html">Invoice</a></li>
-                            <li><a href="./ecom-customers.html">Customers</a></li>
-                        </ul>
-                    </li>
-                </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-controls-3"></i>
-                    <span class="nav-text">Charts</span>
+            <li [ngClass]="kycdata ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'kycdata')" aria-expanded="false">
+                    <i class="flaticon-381-list-1"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">KYC Data</span>
                 </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="./chart-flot.html">Flot</a></li>
-                    <li><a href="./chart-morris.html">Morris</a></li>
-                    <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                    <li><a href="./chart-chartist.html">Chartist</a></li>
-                    <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                    <li><a href="./chart-peity.html">Peity</a></li>
-                </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-internet"></i>
-                    <span class="nav-text">Bootstrap</span>
+            <li [ngClass]="users ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'users')" aria-expanded="false">
+                    <i class="flaticon-381-user-9"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Users</span>
                 </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="./ui-accordion.html">Accordion</a></li>
-                    <li><a href="./ui-alert.html">Alert</a></li>
-                    <li><a href="./ui-badge.html">Badge</a></li>
-                    <li><a href="./ui-button.html">Button</a></li>
-                    <li><a href="./ui-modal.html">Modal</a></li>
-                    <li><a href="./ui-button-group.html">Button Group</a></li>
-                    <li><a href="./ui-list-group.html">List Group</a></li>
-                    <li><a href="./ui-media-object.html">Media Object</a></li>
-                    <li><a href="./ui-card.html">Cards</a></li>
-                    <li><a href="./ui-carousel.html">Carousel</a></li>
-                    <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                    <li><a href="./ui-popover.html">Popover</a></li>
-                    <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                    <li><a href="./ui-tab.html">Tab</a></li>
-                    <li><a href="./ui-typography.html">Typography</a></li>
-                    <li><a href="./ui-pagination.html">Pagination</a></li>
-                    <li><a href="./ui-grid.html">Grid</a></li>
-
-                </ul>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-heart"></i>
-                    <span class="nav-text">Plugins</span>
+            <li [ngClass]="analytics ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'analytics')" aria-expanded="false">
+                    <i class="flaticon-381-diploma"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Analytics</span>
                 </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="./uc-select2.html">Select 2</a></li>
-                    <li><a href="./uc-nestable.html">Nestedable</a></li>
-                    <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                    <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                    <li><a href="./uc-toastr.html">Toastr</a></li>
-                    <li><a href="./map-jqvmap.html">Jqv Map</a></li>
-                    <li><a href="./uc-lightgallery.html">Lightgallery</a></li>
-                </ul>
             </li>
-            <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+            <li [ngClass]="notifications ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'notifications')" aria-expanded="false">
+                    <i class="flaticon-381-notepad-1"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Notifications</span>
+                </a>
+            </li>
+            <li [ngClass]="chatsupport ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'chatsupport')" aria-expanded="false">
+                    <i class="flaticon-381-user-8"></i>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Chat Support</span>
+                </a>
+            </li>
+            <li [ngClass]="settings ? 'mm-active' : ''">
+                <a href="javascript:void(0)" class="ai-icon" (click)="menuStatus($event, 'settings')" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">Widget</span>
+                    <span class="nav-text" *ngIf="!menuToggleNavheader">Settings</span>
                 </a>
             </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-notepad"></i>
-                    <span class="nav-text">Forms</span>
+
+            <!--li class="" [ngClass]="dashboard ? 'mm-active' : ''">
+                <a class="has-arrow ai-icon" (click)="menuStatus($event, 'dashboard')"
+                href="javascript:void(0)" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Trade Groups</span>
                 </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="./form-element.html">Form Elements</a></li>
-                    <li><a href="./form-wizard.html">Wizard</a></li>
-                    <li><a href="./form-editor-summernote.html">Summernote</a></li>
-                    <li><a href="form-pickers.html">Pickers</a></li>
-                    <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
+                <ul aria-expanded="false" class="mm-collapse" *ngIf="dashboard">
+                    <li class="mm-active"><a href="index.html" class="mm-active">Dashboard</a></li>
+                    <li><a href="workout-statistic.html">Workout Statistic</a></li>
+                    <li><a href="workoutplan.html">Workout Plan</a></li>
+                    <li><a href="distance-map.html">Distance Map</a></li>
+                    <li><a href="food-menu.html">Diet Food Menu</a></li>
+                    <li><a href="personal-record.html">Personal Record</a></li>
                 </ul>
-            </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-network"></i>
-                    <span class="nav-text">Table</span>
-                </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                    <li><a href="table-datatable-basic.html">Datatable</a></li>
-                </ul>
-            </li>
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-layer-1"></i>
-                    <span class="nav-text">Pages</span>
-                </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="./page-register.html">Register</a></li>
-                    <li><a href="./page-login.html">Login</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                        <ul aria-expanded="false" class="mm-collapse">
-                            <li><a href="./page-error-400.html">Error 400</a></li>
-                            <li><a href="./page-error-403.html">Error 403</a></li>
-                            <li><a href="./page-error-404.html">Error 404</a></li>
-                            <li><a href="./page-error-500.html">Error 500</a></li>
-                            <li><a href="./page-error-503.html">Error 503</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./page-lock-screen.html">Lock Screen</a></li>
-                </ul>
-            </li>
+            </li-->
+
+
+
+
         </ul>
-        <div class="add-menu-sidebar">
-            <img src="images/calendar.png" alt="" class="mr-3">
+        <!--div class="add-menu-sidebar">
+            <img src="./assets/images/calendar.png" alt="" class="mr-3">
             <p class="	font-w500 mb-0">Create Workout Plan Now</p>
+        </div-->
+        <!--div class="copyright">
+            <p><strong></strong> © 2021 All Rights Reserved</p>
+        </div-->
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
         </div>
-        <div class="copyright">
-            <p><strong>Gymove Fitness Admin Dashboard</strong> © 2020 All Rights Reserved</p>
-            <p>Made with <span class="heart"></span> by DexignZone</p>
+        <div class="ps__rail-y" style="top: 0px; right: 0px;">
+            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
         </div>
-    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+    </div>
 </div>

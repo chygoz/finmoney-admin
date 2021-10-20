@@ -1,20 +1,401 @@
 .header {
-    // width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.header {
     height: 7.5rem;
     z-index: 1;
-    position: relative;
+    position: fixed;
     padding: 0rem;
-  
+    background-color: #fff;
     z-index: 4;
-    // box-shadow: 0 0 1rem $l-border;
     padding-left: 21.563rem;
-    transition: all .2s ease;
-   
+    transition: all 0.2s ease;
+}
+
+.header .header-content {
+    height: 100%;
+    padding-left: 5.3125rem;
+    padding-right: 2.4rem;
+    align-items: center;
+    display: flex;
+}
+
+.header .navbar {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-expand {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.header .navbar .navbar-collapse {
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-expand .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.header-left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-left .dashboard_bar {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+}
+
+.navbar-expand .navbar-nav {
+    flex-direction: row;
+}
+
+.header-right {
+    height: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.header-right .nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-group-prepend,
+.input-group-append {
+    display: flex;
+}
+
+.input-group>.form-control:not(:first-child),
+.input-group>.custom-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-area .form-control {
+    background: #efefef !important;
+    border-width: 0px;
+    padding-right: 20px;
+    min-height: 55px;
+    border-radius: 0;
+    border-top-right-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+}
+
+.input-group>.form-control,
+.input-group>.form-control-plaintext,
+.input-group>.custom-select,
+.input-group>.custom-file {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.form-control {
+    border-radius: 1.25rem;
+    background: #fff;
+    border: 1px solid #f0f1f5;
+    color: #b1b1b1;
+    height: 56px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f0f1f5;
+    border-radius: 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.header-right .nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-right .notification_dropdown .nav-link {
+    position: relative;
+    color: #0b2a97;
+    background: rgba(11, 42, 151, 0.1);
+    border-radius: 1.25rem;
+    padding: 12px;
+    line-height: 1;
+}
+
+.header-right .nav-item .nav-link {
+    color: #464a53;
+    font-size: 18px;
+}
+
+.navbar-expand .navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+.notification_dropdown .dropdown-menu-right {
+    min-width: 310px;
+    padding: 0rem 0 1rem;
+    top: 100%;
+}
+
+.header-right .dropdown-menu {
+    border-width: 0;
+    box-shadow: 0 0 37px rgb(8 21 66 / 5%);
+}
+
+.notification_dropdown .dropdown-menu-right .all-notification {
+    display: block;
+    padding: 15px 30px 0;
+    text-align: center;
+    border-top: 1px solid #f4f5f9;
+}
+
+.ps__rail-x {
+    display: none;
+    opacity: 0;
+    transition: background-color 0.2s linear, opacity 0.2s linear;
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+    height: 15px;
+    bottom: 0;
+    position: absolute;
+}
+
+.ps__thumb-x {
+    background-color: #aaa;
+    border-radius: 6px;
+    transition: background-color 0.2s linear, height 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, height 0.2s ease-in-out;
+    height: 6px;
+    bottom: 2px;
+    position: absolute;
+}
+
+.ps__rail-y {
+    display: none;
+    opacity: 0;
+    transition: background-color 0.2s linear, opacity 0.2s linear;
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+    width: 15px;
+    right: 0;
+    position: absolute;
+}
+
+.ps__thumb-y {
+    background-color: #dae2f3;
+    width: 4px;
+}
+
+.ps__thumb-y {
+    background-color: #aaa;
+    border-radius: 6px;
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    width: 6px;
+    right: 2px;
+    position: absolute;
+}
+
+.notification_dropdown .dropdown-menu-right .all-notification {
+    display: block;
+    padding: 15px 30px 0;
+    text-align: center;
+    border-top: 1px solid #f4f5f9;
+}
+
+.notification_dropdown .dropdown-menu-right .all-notification i {
+    margin-left: 10px;
+}
+
+.header-right .nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-header {
+    position: fixed;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.nav-header {
+    position: fixed;
+}
+
+.nav-header {
+    height: 7.5rem;
+    width: 21.563rem;
+    display: inline-block;
+    text-align: left;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.nav-header .brand-logo {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.125rem;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-weight: 700;
+}
+
+.nav-header .logo-abbr {
+    max-width: 52px;
+}
+
+.nav-control {
+    cursor: pointer;
+    position: absolute;
+    right: -4.0625rem;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    font-size: 1.4rem;
+    padding: 2px 0.5rem 0;
+    border-radius: 2px;
+}
+
+.hamburger {
+    display: inline-block;
+    left: 0px;
+    position: relative;
+    top: 3px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    width: 26px;
+    z-index: 999;
+}
+
+.nav-header .hamburger .line {
+    background: #0b2a97 !important;
+}
+
+.hamburger .line:nth-child(1) {
+    width: 20px;
+}
+
+.hamburger .line {
+    background: #0b2a97;
+    display: block;
+    height: 3px;
+    border-radius: 3px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-header .hamburger .line {
+    background: #0b2a97 !important;
+}
+
+.hamburger .line:nth-child(2) {
+    width: 26px;
+}
+
+.hamburger .line:nth-child(3) {
+    width: 22px;
+}
+
+.nav-header-active {
+    width: 5rem !important;
+}
+
+.header-active {
+    padding-left: 6rem !important;
+}
+
+.nav-header-active .brand-logo {
+    padding-left: 11px !important;
+}
+
+.nav-link:hover .dropdown-menu-right1 {
+    display: block !important;
+    top: 75px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {}
+
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {}
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1200px) {}
+
+@media only screen and (min-device-width: 1201px) and (max-device-width: 1600px) {
+    .search-area {
+        width: 230px;
     }
-    .header-content {
-        height: 100%;
-        padding-left: 5.3125rem;
-        padding-right: 2.4rem;
-        align-items: center;
-        display: flex;
+    .d-xl-inline-flex {
+        display: inline-flex !important;
     }
+    .input-group-append {
+        margin-left: -1px;
+    }
+    .header-right>li:not(:first-child) {
+        padding-left: 1.3rem;
+    }
+    .header-right>li:not(:first-child) {
+        padding-left: 1.3rem;
+    }
+}
